@@ -39,7 +39,7 @@ int read_line(void)
 		exit(EXIT_FAILURE);
 	}
 
-	if (monty.line[read - 1] == '\n')
+	if (read > 0 && monty.line[read - 1] == '\n')
 	{
 		monty.line[read - 1] = '\0';
 		read--;
