@@ -57,6 +57,7 @@ void (*get_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
 	instruction_t instrs[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL},
 	};
 
@@ -66,7 +67,7 @@ void (*get_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
 		if (strcmp(opcode, instrs[i].opcode) == 0)
 			return (instrs[i].f);
 
-	fprintf(stderr, "L%d: unknown instruction %s", monty.line_number, opcode);
+	fprintf(stderr, "L%d: unknown instruction %s\n", monty.line_number, opcode);
 	exit(EXIT_FAILURE);
 }
 

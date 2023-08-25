@@ -30,3 +30,23 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	print_stack();
 }
+
+/**
+ * pint - prints the valuer at the top of the stack
+ * @stack: double pointer to the top of the stack
+ * @line_number: line number of the command in the Monty file
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+
+	if (!monty.stack)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", monty.line_number);
+		clean_resources(1);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%d\n", monty.stack->n);
+}
