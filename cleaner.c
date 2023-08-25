@@ -15,8 +15,7 @@ void clean_resources(int is_exit)
 	if (is_exit)
 	{
 		fclose(monty.file);
-		if (monty.stack)
-			free_stack();
+		free_stack();
 	}
 }
 
