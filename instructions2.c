@@ -10,5 +10,5 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 
-	clean_resources(0);
+	clean_resources(1);
 }
