@@ -7,7 +7,6 @@
  */
 void add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
 	size_t size = stack_len();
 
 	if (size < 2)
