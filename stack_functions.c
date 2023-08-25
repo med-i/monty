@@ -69,3 +69,22 @@ void print_stack(void)
 		current = current->next;
 	}
 }
+
+/**
+ * stack_len - returns the number of elements in the stack
+ *
+ * Return: number of nodes in the stack
+ */
+size_t stack_len(void)
+{
+	size_t size = 0;
+	stack_t *current = monty.stack;
+
+	while (current)
+	{
+		size++;
+		current = current->next;
+	}
+
+	return (size);
+}

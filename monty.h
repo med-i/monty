@@ -82,11 +82,13 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 
 /* stack_functions.c */
 stack_t *add_dnodeint(void);
 stack_t *add_dnodeint_end(void);
 void print_stack(void);
+size_t stack_len(void);
 
 /* cleaner.c */
 void clean_resources(int is_exit);

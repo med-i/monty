@@ -38,17 +38,14 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	(void)stack;
-	(void)line_number;
-
-	if (!monty.stack)
+	if (!*stack)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", monty.line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		clean_resources(1);
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", monty.stack->n);
+	printf("%d\n", (*stack)->n);
 }
 
 /**
@@ -58,21 +55,42 @@ void pint(stack_t **stack, unsigned int line_number)
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
-
 	(void)stack;
 	(void)line_number;
 
-	if (!monty.stack)
+	stack_t *temp;
+
+	if (!*stack)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", monty.line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
 		clean_resources(0);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = monty.stack;
-	monty.stack = temp->next;
+	temp = *stack;
+	*stack = temp->next;
 	if (temp->next)
 		temp->next->prev = NULL;
 	free(temp);
+}
+
+/**
+ * swap - swaps the top two elements of the stack
+ * @stack: double pointer to the top of the stack
+ * @line_number: line number of the command in the Monty file
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	int temp;
+
+	if (stack_len() < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		clean_resources(1);
+		exit(EXIT_FAILURE);
+	}
+
+	temp = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = temp;
 }
