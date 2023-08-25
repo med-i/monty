@@ -54,8 +54,11 @@ void get_push_int(char *arg)
  */
 void (*get_opcode(char *opcode))(stack_t **stack, unsigned int line_number)
 {
-	instruction_t instrs[] = {{"push", push}, {"pall", pall}, {"pint", pint},
-							  {"pop", pop},	  {"swap", swap}, {NULL, NULL}};
+	instruction_t instrs[] = {{"push", push},
+							  {"pall", pall},
+							  {"pint", pint},
+							  {"pop", pop},
+							  {NULL, NULL}};
 
 	int i;
 
