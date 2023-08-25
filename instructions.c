@@ -70,25 +70,3 @@ void pop(stack_t **stack, unsigned int line_number)
 		temp->next->prev = NULL;
 	free(temp);
 }
-
-/**
- * swap - swaps the top two elements of the stack
- * @stack: double pointer to the top of the stack
- * @line_number: line number of the command in the Monty file
- */
-/* void swap(stack_t **stack, unsigned int line_number)
-{
-	int temp;
-	size_t size = stack_len();
-
-	if (size < 2)
-	{
-		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		clean_resources(0);
-		exit(EXIT_FAILURE);
-	}
-
-	temp = (*stack)->n;
-	(*stack)->n = (*stack)->next->n;
-	(*stack)->next->n = temp;
-} */
