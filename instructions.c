@@ -65,7 +65,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	if (!monty.stack)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", monty.line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", monty.line_number);
 		clean_resources(1);
 		exit(EXIT_FAILURE);
 	}
