@@ -72,5 +72,7 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	to_delete = monty.stack;
 	monty.stack = monty.stack->next;
+	if (monty.stack)
+		monty.stack->prev = NULL;
 	free(to_delete);
 }
