@@ -38,14 +38,17 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	if (!*stack)
+	(void)stack;
+	(void)line_number;
+
+	if (!monty.stack)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", monty.line_number);
 		clean_resources(1);
 		exit(EXIT_FAILURE);
 	}
 
-	printf("%d\n", (*stack)->n);
+	printf("%d\n", monty.stack->n);
 }
 
 /**
@@ -57,15 +60,18 @@ void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
-	if (!*stack)
+	(void)stack;
+	(void)line_number;
+
+	if (!monty.stack)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", monty.line_number);
 		clean_resources(0);
 		exit(EXIT_FAILURE);
 	}
 
-	temp = *stack;
-	*stack = temp->next;
+	temp = monty.stack;
+	monty.stack = temp->next;
 	if (temp->next)
 		temp->next->prev = NULL;
 	free(temp);
