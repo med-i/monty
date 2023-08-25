@@ -79,7 +79,7 @@ void pop(stack_t **stack, unsigned int line_number)
  * @stack: double pointer to the top of the stack
  * @line_number: line number of the command in the Monty file
  */
-void swap(stack_t **stack, unsigned int line_number)
+/* void swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
 	size_t size = stack_len();
@@ -94,4 +94,4 @@ void swap(stack_t **stack, unsigned int line_number)
 	temp = (*stack)->n;
 	(*stack)->n = (*stack)->next->n;
 	(*stack)->next->n = temp;
-}
+} */
