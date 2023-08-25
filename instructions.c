@@ -87,8 +87,13 @@ void swap(stack_t **stack, unsigned int line_number)
 	if (size < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		fclose(monty.file);
-		clean_resources(0);
+		if (size == 0)
+		{
+			fclose(monty.file);
+			clean_resources(0);
+		}
+		else
+			clean_resources(1);
 		exit(EXIT_FAILURE);
 	}
 
