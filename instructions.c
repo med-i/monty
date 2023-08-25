@@ -50,3 +50,27 @@ void pint(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", monty.stack->n);
 }
+
+/**
+ * pop - removes the top element of the stack
+ * @stack: double pointer to the top of the stack
+ * @line_number: line number of the command in the Monty file
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+
+	stack_t *to_delete;
+
+	if (!monty.stack)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", monty.line_number);
+		clean_resources(1);
+		exit(EXIT_FAILURE);
+	}
+
+	to_delete = monty.stack;
+	monty.stack = monty.stack->next;
+	free(to_delete);
+}

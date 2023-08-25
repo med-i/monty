@@ -81,6 +81,7 @@ void execute_opcode(void);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
 
 /* stack_functions.c */
 stack_t *add_dnodeint(void);
