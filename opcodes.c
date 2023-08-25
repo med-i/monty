@@ -10,7 +10,7 @@ int extract_opcode(void)
 	char *opcode = strtok(monty.line, DELIMITERS);
 	char *arg;
 
-	if (!opcode)
+	if (!opcode || *opcode == '#')
 		return (1);
 
 	if (strcmp(opcode, "push") == 0)
