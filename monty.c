@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 		if (extract_opcode())
 		{
 			clean_resources(0);
+			monty.line_number++;
 			continue;
 		}
 
