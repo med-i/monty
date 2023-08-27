@@ -108,6 +108,13 @@ void mod(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
+	if ((*stack)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		clean_resources(1);
+		exit(EXIT_FAILURE);
+	}
+
 	(*stack)->next->n = (*stack)->next->n % (*stack)->n;
 	pop(stack, line_number);
 }
