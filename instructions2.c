@@ -1,17 +1,6 @@
 #include "monty.h"
 
 /**
- * nop - doesn’t do anything
- * @stack: double pointer to the top of the stack
- * @line_number: line number of the command in the Monty file
- */
-void nop(stack_t **stack, unsigned int line_number)
-{
-	(void)stack;
-	(void)line_number;
-}
-
-/**
  * add - adds the top two elements of the stack
  * @stack: double pointer to the top of the stack
  * @line_number: line number of the command in the Monty file
@@ -99,5 +88,26 @@ void mul(stack_t **stack, unsigned int line_number)
 	}
 
 	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
+	pop(stack, line_number);
+}
+
+/**
+ * mod - computes the rest of the division of the second top element
+ * of the stack by the top element of the stack
+ * @stack: double pointer to the top of the stack
+ * @line_number: line number of the command in the Monty file
+ */
+void mod(stack_t **stack, unsigned int line_number)
+{
+	size_t size = stack_len();
+
+	if (size < 2)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		clean_resources(1);
+		exit(EXIT_FAILURE);
+	}
+
+	(*stack)->next->n = (*stack)->next->n % (*stack)->n;
 	pop(stack, line_number);
 }
