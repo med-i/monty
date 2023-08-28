@@ -27,8 +27,6 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	// 64 -- 90  |  97 -- 122
-
 	code = (*stack)->n;
 
 	if ((code >= 64 && code <= 90) || (code >= 97 && code <= 122))
