@@ -93,6 +93,7 @@ void mod(stack_t **stack, unsigned int line_number);
 
 /* instrcutions3.c */
 void nop(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
 
 /* stack_functions.c */
 stack_t *add_dnodeint(void);
