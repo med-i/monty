@@ -27,13 +27,16 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
+	// 64 -- 90  |  97 -- 122
+
 	code = (*stack)->n;
-	if (code < 0 || code > 255)
+
+	if ((code >= 64 && code <= 90) || (code >= 97 && code <= 122))
+		printf("%c\n", (char)code);
+	else
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_number);
 		clean_resources(1);
 		exit(EXIT_FAILURE);
 	}
-
-	printf("%c\n", (char)code);
 }
